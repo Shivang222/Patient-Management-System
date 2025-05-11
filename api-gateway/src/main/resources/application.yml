@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        # REST CLIENT -> http://localhost:4004/api/v1/patients
+        # API GATEWAY -> http://patient-service:4000/v1/patients
+        # PATIENT SERVICE (SPRINGBOOT APP) -> /v1/patients -> Patient Array
+        - id: patient-service-route
+          uri: http://localhost:4000
+          predicates:
+            - Path=/api/v1/patients/**
+          filters:
+            - StripPrefix=1
+            - JwtValidation
+        # REST CLIENT -> http://localhost:4004/api-docs/v1/patients
+        # API GATEWAY -> http://patient-service:4000/v3/api-docs
+        # PATIENT SERVICE (SPRINGBOOT APP) -> /v1/patients -> Patient Array
+        - id: api-docs-patient-service
+          uri: http://localhost:4000
+          predicates:
+            - Path=/api-docs/v1/patients
+          filters:
+            - RewritePath=/api-docs/v1/patients, /v3/api-docs
+        # http://localhost:4004/api/v1/auth/login
+        # API GATEWAY -> http://localhost:4005/v1/auth
+        - id: auth-service-route
+          uri: http://localhost:4005
+          predicates:
+            - Path=/api/v1/auth/**
+          filters:
+            - StripPrefix=1
+        - id: api-docs-auth-service
+          uri: http://localhost:4005
+          predicates:
+            - Path=/api-docs/v1/auth
+          filters:
+            - RewritePath=/api-docs/v1/auth, /v3/api-docs
+server:
+  port: 4004

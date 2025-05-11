@@ -1,0 +1,22 @@
+server:
+  port: 4005
+spring:
+  application:
+    name: auth-service
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=pms
+#    username: postgres
+#    password:
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#  sql:
+#    init:
+#      mode: always
+#jwt:
+#  secret: ${JWT_SECRET}
+#auth:
+#  service:
+#    url: ${AUTH_SERVICE_URL}

@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: patient-service
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+
+server:
+  port: 4000
+#UNCOMMENT TO USE LOCAL DB OUTSIDE OF DOCKER
+#spring:
+#  application:
+#    name: patient-service
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=pms
+#    username: postgres
+#    password:
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#  sql:
+#    init:
+#      mode: always

@@ -1,0 +1,12 @@
+### POST request to create new patient
+POST http://localhost:4004/api/v1/patients
+Content-Type: application/json
+
+{
+    "name": "Plaksha Srivastava",
+    "email": "plaksh.srivastava@google.com",
+    "address": "Amsterdam",
+    "dateOfBirth": "2029-08-22",
+    "registeredDate": "2030-01-01"
+}
+###

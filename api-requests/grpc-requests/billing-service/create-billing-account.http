@@ -1,0 +1,11 @@
+### GET request to grpc server
+GRPC localhost:9002/BillingService/CreateBillingAccount
+Content-Type: application/json
+
+{
+  "patientId": "12333",
+  "name": "Shivang Srivastava",
+  "email": "shivang.srivastava@gmail.com"
+}
+
+###

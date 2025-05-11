@@ -1,0 +1,12 @@
+### PUT request to update patient detaisl
+PUT http://localhost:4004/api/v1/patients/be5fcea7-05d8-4dc0-935d-444811e4cc77
+Content-Type: application/json
+
+{
+  "name": "Shivang Srivastava",
+  "email": "shivang.srivastava@apple.com",
+  "address": "222 Main St, Whitefield",
+  "dateOfBirth": "2000-08-21"
+}
+
+###
